@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  FlashCardApp
+
+  Created by Nguyễn Đức Tân on 9/5/20.
+  Copyright © 2020 Nguyễn Đức Tân. All rights reserved.
+*/
+
+"tabHome" = "ホーム";
+"tabUser" = "ユーザー";
+"Warning email" = "Please enter your email";
+"Warning password" = "Please enter your password";
+"Check verify mail" = "Please check your email to verify your account";
+"Email existed" = "Email existed";
+"User canceled" = "User canceled";
+"Wrong confirm password" = "Confirm password wrong";
+"Check reset password" = "Check your email to reset password";

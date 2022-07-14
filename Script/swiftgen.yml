@@ -1,0 +1,13 @@
+strings:
+  inputs: ../FlashCardApp/Resources/ja.lproj
+  filter: .+\.strings$
+  outputs:
+    - templatePath: stringsTemplate.stencil
+      output: ../FlashCardApp/Resources/Generated/Localizable.swift
+xcassets:
+  inputs:
+    - ../FlashCardApp/Resources/Assets.xcassets
+  outputs:
+    - templatePath: assetsTemplate.stencil
+      output: ../FlashCardApp/Resources/Generated/Assets.swift
+

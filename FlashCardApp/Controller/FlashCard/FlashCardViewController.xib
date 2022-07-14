@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FlashCardViewController" customModule="FlashCardApp" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KH1-VV-zOq">
+                    <rect key="frame" x="359" y="54" width="45" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="45" id="9MM-jh-vYr"/>
+                        <constraint firstAttribute="height" constant="45" id="weP-Oo-yAN"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="xmark" catalog="system">
+                        <color key="titleColor" systemColor="labelColor"/>
+                    </state>
+                    <connections>
+                        <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="GDb-5W-OAk"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l1X-MI-AcE" customClass="ShadowView" customModule="FlashCardApp" customModuleProvider="target">
+                    <rect key="frame" x="41.5" y="217" width="331" height="462"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xqI-Xc-O6D">
+                            <rect key="frame" x="30" y="392" width="271" height="50"/>
+                            <color key="backgroundColor" name="fourthColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="dYk-5e-Kdt"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                            <state key="normal" title="Reset">
+                                <color key="titleColor" name="lightTextColor"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="25"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="resetAction:" destination="-1" eventType="touchUpInside" id="Kcz-g0-oVy"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="xqI-Xc-O6D" secondAttribute="bottom" constant="20" id="3bB-BR-bwX"/>
+                        <constraint firstItem="xqI-Xc-O6D" firstAttribute="leading" secondItem="l1X-MI-AcE" secondAttribute="leading" constant="30" id="c0n-kE-AKc"/>
+                        <constraint firstAttribute="width" secondItem="l1X-MI-AcE" secondAttribute="height" multiplier="165/230" id="j5m-jt-mzE"/>
+                        <constraint firstAttribute="trailing" secondItem="xqI-Xc-O6D" secondAttribute="trailing" constant="30" id="u0G-bv-9VH"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" name="primaryColor"/>
+            <constraints>
+                <constraint firstItem="l1X-MI-AcE" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="5ML-pb-aqv"/>
+                <constraint firstItem="l1X-MI-AcE" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="fj0-29-Xrp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KH1-VV-zOq" secondAttribute="trailing" constant="10" id="gzq-4S-ZqR"/>
+                <constraint firstItem="l1X-MI-AcE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="i6w-My-yvM"/>
+                <constraint firstItem="KH1-VV-zOq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="uaG-fx-W6m"/>
+            </constraints>
+            <point key="canvasLocation" x="18.840579710144929" y="61.607142857142854"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <namedColor name="fourthColor">
+            <color red="0.36899998784065247" green="0.99599999189376831" blue="0.74099999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightTextColor">
+            <color red="0.54199999570846558" green="0.59500002861022949" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="primaryColor">
+            <color red="0.99599999189376831" green="0.50599998235702515" blue="0.36899998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
