@@ -48,7 +48,9 @@ class HomeViewController: BaseViewController {
     }
     
     @objc func addNewGenreAction() {
-        
+        let addNewGenre = AddNewGenreViewController()
+        addNewGenre.delegate = self
+        presentView(addNewGenre)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -223,5 +225,11 @@ extension HomeViewController: SignInDelegate, SignUpDelegate {
     
     override func editProfileUser() {
         super.editProfileUser()
+    }
+}
+
+extension HomeViewController: AddNewGenreDelegate{
+    func didAddNewGenre(genreName: String) {
+        print(genreName)
     }
 }

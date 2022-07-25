@@ -8,6 +8,8 @@ import Foundation
 // MARK: - Strings
 
 internal enum Localizable {
+  /// Please input name
+  internal static let blankInputName = Localizable.tr("Localizable", "Blank input name")
   /// Check your email to reset password
   internal static let checkResetPassword = Localizable.tr("Localizable", "Check reset password")
   /// Please check your email to verify your account
