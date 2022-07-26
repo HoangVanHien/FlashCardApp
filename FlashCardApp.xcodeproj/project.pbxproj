@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21B2D1BA288AA8BD00F3F0A4 /* AddNewGenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B2D1B8288AA8BD00F3F0A4 /* AddNewGenreViewController.swift */; };
+		21B2D1BB288AA8BD00F3F0A4 /* AddNewGenreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B2D1B9288AA8BD00F3F0A4 /* AddNewGenreViewController.xib */; };
 		4D05C5D4253AEF4200FEF150 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D05C5D2253AEF4200FEF150 /* ForgotPasswordViewController.swift */; };
 		4D05C5D5253AEF4200FEF150 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D05C5D3253AEF4200FEF150 /* ForgotPasswordViewController.xib */; };
 		4D2B999625393913005681CF /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2B999525393913005681CF /* DeviceInfo.swift */; };
@@ -94,6 +96,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21B2D1B8288AA8BD00F3F0A4 /* AddNewGenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGenreViewController.swift; sourceTree = "<group>"; };
+		21B2D1B9288AA8BD00F3F0A4 /* AddNewGenreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewGenreViewController.xib; sourceTree = "<group>"; };
 		2FD1B0A86225BCDAEBE4110E /* Pods-FlashCardApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashCardApp.release.xcconfig"; path = "Target Support Files/Pods-FlashCardApp/Pods-FlashCardApp.release.xcconfig"; sourceTree = "<group>"; };
 		4D05C5D2253AEF4200FEF150 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		4D05C5D3253AEF4200FEF150 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
@@ -350,6 +354,8 @@
 				4DA689AC25F0E3CB001CCF26 /* Cells */,
 				4DA689A725F0CE07001CCF26 /* GenreViewController.swift */,
 				4DA689A825F0CE07001CCF26 /* GenreViewController.xib */,
+				21B2D1B8288AA8BD00F3F0A4 /* AddNewGenreViewController.swift */,
+				21B2D1B9288AA8BD00F3F0A4 /* AddNewGenreViewController.xib */,
 			);
 			path = Genre;
 			sourceTree = "<group>";
@@ -592,6 +598,7 @@
 				4DA689B025F0E3FC001CCF26 /* BigFlashcardCollectionViewCell.xib in Resources */,
 				4D9DDBA92504968C0057CB23 /* SignInViewController.xib in Resources */,
 				4DD7DF042503B16D0088BD8D /* Assets.xcassets in Resources */,
+				21B2D1BB288AA8BD00F3F0A4 /* AddNewGenreViewController.xib in Resources */,
 				4D7C06CF25F412CF00402AEA /* CardView.xib in Resources */,
 				4DA689A325F0CDDA001CCF26 /* FlashCardOverViewController.xib in Resources */,
 				4D47AED925EC14A800D8006D /* MenuItemTableViewCell.xib in Resources */,
@@ -723,6 +730,7 @@
 				4D47AE1925EA53BB00D8006D /* AppPreferences.swift in Sources */,
 				4DA1FB7D250CD99E00C73D21 /* Api.swift in Sources */,
 				4D47AEA025EAC2C500D8006D /* GenreHeaderCollectionReusableView.swift in Sources */,
+				21B2D1BA288AA8BD00F3F0A4 /* AddNewGenreViewController.swift in Sources */,
 				4D47AEB925EB8BBC00D8006D /* HomeHeaderView.swift in Sources */,
 				4DA6899125F0C8D9001CCF26 /* MyProfileViewController.swift in Sources */,
 				4DA1FBA6250D211200C73D21 /* AppColor.swift in Sources */,

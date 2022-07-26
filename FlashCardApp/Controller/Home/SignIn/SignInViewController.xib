@@ -121,6 +121,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="35" id="Sxt-zy-sXS"/>
                                     </constraints>
+                                    <string key="text">ashdgajkjdghdgjaddaadasdadsdashdgajkjdghdgjaddaadasdadsdashdgajkjdghdgjaddaadasdadsdashdgajkjdghdgjaddaadasdadsdashdgajkjdghdgjaddaadasdadsd</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 </textField>
@@ -194,7 +195,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="C45-Ze-NkV"/>
-            <color key="backgroundColor" white="0.0" alpha="0.24381956339999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.24381956339999999" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Jlq-S0-mAr" firstAttribute="width" secondItem="aHU-MY-Cly" secondAttribute="width" multiplier="0.799517" id="8zD-xv-8cq"/>
                 <constraint firstItem="Jlq-S0-mAr" firstAttribute="centerY" secondItem="C45-Ze-NkV" secondAttribute="centerY" id="LtV-eI-FaI"/>
