@@ -86,11 +86,11 @@
 		4DD7DF212503D3C90088BD8D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DD7DF232503D3C90088BD8D /* Localizable.strings */; };
 		4DD7DF2F2503DA200088BD8D /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7DF2D2503DA200088BD8D /* Localizable.swift */; };
 		4DD7DF302503DA200088BD8D /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD7DF2E2503DA200088BD8D /* Assets.swift */; };
-		4DF9594B2538246800FD2D7A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4DF9594A2538246800FD2D7A /* GoogleService-Info.plist */; };
 		4DF959732538305700FD2D7A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF959722538305700FD2D7A /* String+Extension.swift */; };
 		4DF959762538354400FD2D7A /* LoadingHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF959752538354400FD2D7A /* LoadingHud.swift */; };
 		4DF959BA253935F100FD2D7A /* EmptyUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF959B8253935F100FD2D7A /* EmptyUserTableViewCell.swift */; };
 		8EA695C2091A669D00ED4A3E /* Pods_FlashCardApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE6348F1B614DC0503671E94 /* Pods_FlashCardApp.framework */; };
+		CC8834B1288A8033002C307F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC8834B0288A8033002C307F /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,11 +178,12 @@
 		4DD7DF2A2503D60D0088BD8D /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		4DD7DF2D2503DA200088BD8D /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		4DD7DF2E2503DA200088BD8D /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
-		4DF9594A2538246800FD2D7A /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4DF959722538305700FD2D7A /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		4DF959752538354400FD2D7A /* LoadingHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHud.swift; sourceTree = "<group>"; };
 		4DF959B8253935F100FD2D7A /* EmptyUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyUserTableViewCell.swift; sourceTree = "<group>"; };
 		AE6348F1B614DC0503671E94 /* Pods_FlashCardApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlashCardApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC8834B0288A8033002C307F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CC8834B2288A9885002C307F /* FlashCardApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlashCardApp.entitlements; sourceTree = "<group>"; };
 		FE4806C4E1E75F8DF98C9E53 /* Pods-FlashCardApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashCardApp.debug.xcconfig"; path = "Target Support Files/Pods-FlashCardApp/Pods-FlashCardApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -393,7 +394,8 @@
 		4DD7DEF92503B16A0088BD8D /* FlashCardApp */ = {
 			isa = PBXGroup;
 			children = (
-				4DF9594A2538246800FD2D7A /* GoogleService-Info.plist */,
+				CC8834B2288A9885002C307F /* FlashCardApp.entitlements */,
+				CC8834B0288A8033002C307F /* GoogleService-Info.plist */,
 				4DA1FBA2250D211200C73D21 /* Define */,
 				4DA1FB95250D200300C73D21 /* Ultilities */,
 				4DA1FB8C250D1F5D00C73D21 /* Models */,
@@ -582,6 +584,7 @@
 				4D47AEA625EAC5C800D8006D /* FlashCardCollectionViewCell.xib in Resources */,
 				4D47AEAC25EB7C0400D8006D /* GenreFooterCollectionReusableView.xib in Resources */,
 				4DA689AA25F0CE07001CCF26 /* GenreViewController.xib in Resources */,
+				CC8834B1288A8033002C307F /* GoogleService-Info.plist in Resources */,
 				4D47AE4625EA9A6700D8006D /* AccountHeaderCollectionReusableView.xib in Resources */,
 				4D47AEB625EB865800D8006D /* LastGenreFooterCollectionReusableView.xib in Resources */,
 				4D47AEA125EAC2C600D8006D /* GenreHeaderCollectionReusableView.xib in Resources */,
@@ -594,7 +597,6 @@
 				4D47AED925EC14A800D8006D /* MenuItemTableViewCell.xib in Resources */,
 				4DA6899225F0C8D9001CCF26 /* MyProfileViewController.xib in Resources */,
 				4D47AED425EC0BD400D8006D /* MenuView.xib in Resources */,
-				4DF9594B2538246800FD2D7A /* GoogleService-Info.plist in Resources */,
 				4DA6899725F0C8F6001CCF26 /* EditProfileViewController.xib in Resources */,
 				4D9DDBAD250496990057CB23 /* SignUpViewController.xib in Resources */,
 				4D47AEB125EB7D7300D8006D /* AccountFooterCollectionReusableView.xib in Resources */,
@@ -897,9 +899,10 @@
 			baseConfigurationReference = FE4806C4E1E75F8DF98C9E53 /* Pods-FlashCardApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlashCardApp/FlashCardApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 62R3ZN8B42;
+				DEVELOPMENT_TEAM = "";
 				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = FlashCardApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -920,6 +923,7 @@
 			baseConfigurationReference = 2FD1B0A86225BCDAEBE4110E /* Pods-FlashCardApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FlashCardApp/FlashCardApp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 62R3ZN8B42;

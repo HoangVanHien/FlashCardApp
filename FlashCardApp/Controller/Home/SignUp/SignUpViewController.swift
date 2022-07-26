@@ -87,6 +87,7 @@ extension SignUpViewController {
                 guard let token = AccessToken.current, !token.isExpired else {
                     return
                 }
+                print(result?.grantedPermissions.count)
                 LoadingHud.show()
                 // Connect to firebase auth
                 let credential = FacebookAuthProvider.credential(withAccessToken: token.tokenString)
@@ -132,6 +133,11 @@ extension SignUpViewController {
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        
+        if gestureRecognizer.view == facebookImageView || gestureRecognizer.view == twitterImageView {
+            return true
+    }
+        
          if touch.view?.isDescendant(of: functionView) == true {
             return false
          }

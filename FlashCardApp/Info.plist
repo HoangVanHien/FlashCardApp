@@ -21,7 +21,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb613119962706781</string>
+				<string>fb749941249793033</string>
 			</array>
 		</dict>
 		<dict>
@@ -44,9 +44,9 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>613119962706781</string>
+	<string>749941249793033</string>
 	<key>FacebookDisplayName</key>
-	<string>E-Commercial-iOS-App</string>
+	<string>FlashcardApp</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>twitterauth</string>
