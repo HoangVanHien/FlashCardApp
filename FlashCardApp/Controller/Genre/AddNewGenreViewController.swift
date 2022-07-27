@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol AddNewGenreDelegate: class {
-    func didAddNewGenre(genreName: String)
+    func didAddNewGenre()
 }
 
 class AddNewGenreViewController: BaseViewController{
@@ -31,7 +32,20 @@ class AddNewGenreViewController: BaseViewController{
         guard let name = nameTextField.text else{
             return
         }
-        delegate?.didAddNewGenre(genreName: name)
+        let newGenre = GenreModel(title: name,
+                                  owner: Auth.auth().currentUser?.uid,
+                                  flashCards: nil)
+        let genreId = newGenre.genreID()
+        
+        if DataLocal.getData(forKey: genreId) != nil{
+            print("Genre already exist")
+            return
+        }
+        
+        DataLocal.saveData(forKey: genreId, newGenre)
+        print(newGenre.genreID())
+        print("Add new genre successfully")
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -66,12 +80,11 @@ extension AddNewGenreViewController: UITextFieldDelegate {
     }
     
     func checkEdited() -> Bool {
-        var check = true
-        if nameTextField.text == "" {
-            nameTextField.placeholder = Localizable.blankInputName
-            check = false
+        if (nameTextField.text != "" && nameTextField.isEditing) {
+            return true
         }
-        return check
+        nameTextField.placeholder = Localizable.blankInputName
+        return false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

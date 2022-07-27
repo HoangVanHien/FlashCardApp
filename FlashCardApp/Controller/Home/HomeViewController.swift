@@ -8,14 +8,16 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class HomeViewController: BaseViewController {
-
+    
     @IBOutlet weak var addNewGenreButton: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
     private let numbersItemRow: CGFloat = 3.0
     private let spaceBetween: CGFloat = 10.0
     var numberOfRowsPerLine: Int = 3
+    
     
     private var itemWidth: CGFloat = {
         let numbersItemRow: CGFloat = 3.0
@@ -228,8 +230,10 @@ extension HomeViewController: SignInDelegate, SignUpDelegate {
     }
 }
 
+
+
 extension HomeViewController: AddNewGenreDelegate{
-    func didAddNewGenre(genreName: String) {
-        print(genreName)
+    func didAddNewGenre() {
+        collectionView.reloadData()
     }
 }

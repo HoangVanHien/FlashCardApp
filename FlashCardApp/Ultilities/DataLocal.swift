@@ -20,4 +20,19 @@ class DataLocal: NSObject {
     class func removeObject(_ key: String) {
         UserDefaults.standard.removeObject(forKey: key)
     }
+    
+    class func saveData(forKey key: String, _ object: Any) {
+        let data = NSKeyedArchiver.archivedData(withRootObject: object)
+        DataLocal.saveObject(data, forKey: key)
+    }
+    
+    class func getData(forKey key: String) -> Any? {
+        guard let data = DataLocal.getObject(key ) as? Data else {
+            return nil
+        }
+        guard let unarchiveData = NSKeyedUnarchiver.unarchiveObject(with: data) else {
+            return nil
+        }
+        return unarchiveData
+    }
 }
