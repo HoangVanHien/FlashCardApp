@@ -9,43 +9,51 @@
 import Foundation
 
 class FlashCardModel: NSObject, NSCoding, Decodable {
-    var id: Int?
-    var title: String?
+    var title: String
     var totalWords: Int?
     var learnedWords: Int?
-    
-    init(id: Int?,
-         title: String?,
+    var words = [String: WordModel]()
+
+    init(
+         title: String,
          totalWords: Int?,
-         learnedWords: Int?) {
-        self.id = id
+         learnedWords: Int?,
+         words : [String: WordModel]?
+    ) {
         self.title = title
         self.totalWords = totalWords
         self.learnedWords = learnedWords
+        if let cfWords = words{
+            for word in cfWords {
+                self.words[word.key] = word.value
+            }
+        }
     }
-    
+
     required convenience init(coder aDecoder: NSCoder) {
-        let id = aDecoder.decodeInteger(forKey: "id")
         let title = aDecoder.decodeObject(forKey: "title") as? String
         let totalWords = aDecoder.decodeInteger(forKey: "totalWords")
         let learnedWords = aDecoder.decodeInteger(forKey: "learnedWords")
-        self.init(id: id,
-                  title: title,
+        let words = aDecoder.decodeObject(forKey: "words") as? [String: WordModel]
+        self.init(
+                  title: title ?? "",
                   totalWords: totalWords,
-                  learnedWords: learnedWords)
+                  learnedWords: learnedWords,
+                  words: words
+        )
     }
-    
+
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(id, forKey: "id")
         aCoder.encode(title, forKey: "title")
         aCoder.encode(totalWords, forKey: "totalWords")
         aCoder.encode(learnedWords, forKey: "learnedWords")
+        aCoder.encode(words, forKey: "words")
     }
-    
+
     enum CodingKeys: String, CodingKey {
-        case id
         case title
         case totalWords
         case learnedWords
+        case words
     }
 }

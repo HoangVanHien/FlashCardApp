@@ -9,36 +9,46 @@
 import Foundation
 
 class GenreModel: NSObject, NSCoding, Decodable {
-    var id: Int?
-    var title: String?
-    var flashCards: [FlashCardModel]?
-    
-    init(id: Int?,
-         title: String?,
-         flashCards: [FlashCardModel]?) {
-        self.id = id
-        self.title = title
-        self.flashCards = flashCards
+    var title: String
+    var owner: String?
+    var flashCards = [String: FlashCardModel]()
+
+    init(
+         title: String,
+         owner: String?,
+         flashCards: [String: FlashCardModel]?) {
+             self.title = title
+             self.owner = owner
+             if let cfFC = flashCards{
+                 for fC in cfFC {
+                     self.flashCards[fC.key] = fC.value
+                 }
+             }
     }
-    
+
     required convenience init(coder aDecoder: NSCoder) {
-        let id = aDecoder.decodeInteger(forKey: "id")
         let title = aDecoder.decodeObject(forKey: "title") as? String
-        let flashCards = aDecoder.decodeObject(forKey: "flashCards") as? [FlashCardModel]
-        self.init(id: id,
-                  title: title,
+        let owner = aDecoder.decodeObject(forKey: "owner") as? String
+        let flashCards = aDecoder.decodeObject(forKey: "flashCards") as? [String: FlashCardModel]
+        self.init(
+                  title: title ?? "",
+                  owner: owner,
                   flashCards: flashCards)
     }
-    
+
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(id, forKey: "id")
         aCoder.encode(title, forKey: "title")
+        aCoder.encode(owner, forKey: "owner")
         aCoder.encode(flashCards, forKey: "flashCards")
     }
-    
+
     enum CodingKeys: String, CodingKey {
-        case id
         case title
+        case owner
         case flashCards
+    }
+    
+    func genreID()->String{
+        return "\(title)\(String(describing: UnicodeScalar(219)))\(owner ?? "")"
     }
 }

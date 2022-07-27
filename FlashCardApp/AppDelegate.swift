@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import FirebaseCore
+import FirebaseFirestore
 import TwitterKit
 
 @UIApplicationMain
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         creatMainTabBarWindow()
         FirebaseApp.configure()
         Twitter.configure()
+        
         return true
     }
     
