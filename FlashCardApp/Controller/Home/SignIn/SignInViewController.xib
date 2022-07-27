@@ -121,7 +121,6 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="35" id="Sxt-zy-sXS"/>
                                     </constraints>
-                                    <string key="text">ashdgajkjdghdgjaddaadasdadsdashdgajkjdghdgjaddaadasdadsdashdgajkjdghdgjaddaadasdadsdashdgajkjdghdgjaddaadasdadsdashdgajkjdghdgjaddaadasdadsd</string>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 </textField>

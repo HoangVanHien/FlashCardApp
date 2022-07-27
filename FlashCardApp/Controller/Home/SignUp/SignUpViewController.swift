@@ -119,8 +119,7 @@ extension SignUpViewController {
                 return
             }
 
-            let credential = TwitterAuthProvider.credential(withToken: session.authToken,
-                                                            secret: session.authTokenSecret)
+            let credential = TwitterAuthProvider.credential(withToken: session.authToken, secret: session.authTokenSecret)
             AuthService.instance.login(credential: credential) { (success) in
                 if success {
                     self.dismiss(animated: true, completion: {

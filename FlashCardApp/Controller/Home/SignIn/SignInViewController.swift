@@ -97,6 +97,10 @@ extension SignInViewController {
                         })
                     }
                 }
+                self.dismiss(animated: true, completion: {
+                    DataLocal.saveObject(1, forKey: AppKey.accountType)
+                    self.delegate?.didSignIn()
+                })
             }
         }
     }
@@ -116,9 +120,8 @@ extension SignInViewController {
                 }
                 return
             }
-            
-            let credential = TwitterAuthProvider.credential(withToken: session.authToken,
-                                                            secret: session.authTokenSecret)
+            //connect to firebase auth
+            let credential = TwitterAuthProvider.credential(withToken: session.authToken,secret: session.authTokenSecret)
             AuthService.instance.login(credential: credential) { (success) in
                 if success {
                     self.dismiss(animated: true, completion: {
@@ -127,6 +130,10 @@ extension SignInViewController {
                     })
                 }
             }
+            self.dismiss(animated: true, completion: {
+                DataLocal.saveObject(2, forKey: AppKey.accountType)
+                self.delegate?.didSignIn()
+            })
         }
     }
     
