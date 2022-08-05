@@ -1,25 +1,23 @@
 //
-//  AddNewGenreViewController.swift
+//  AddNewFlashCardViewController.swift
 //  FlashCardApp
 //
-//  Created by mk1 on 22/07/2022.
+//  Created by mk1 on 05/08/2022.
 //  Copyright © 2022 Nguyễn Đức Tân. All rights reserved.
 //
 
 import UIKit
-import FirebaseAuth
 
-protocol AddNewGenreDelegate: class {
-    func didAddNewGenre()
+protocol AddNewFlashCardDelegate: class {
+    func didAddNewFlashCard()
 }
 
-class AddNewGenreViewController: BaseViewController{
+class AddNewFlashCardViewController: BaseViewController {
 
     @IBOutlet weak var functionView: UIView!
     @IBOutlet weak var nameTextField: UITextField!
-    weak var delegate: AddNewGenreDelegate?
-    
-    
+    weak var delegate: AddNewFlashCardDelegate?
+    var genre: GenreModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,21 +34,23 @@ class AddNewGenreViewController: BaseViewController{
         }
         
         
-        let newGenre = GenreModel(
-            cloudId: nil, localId: LocalAppModelData.genres.count, title: name, owner: Auth.auth().currentUser?.uid, flashCards: nil)
+        let flashCard = FlashCardModel(id: genre?.flashCards?.count ?? 0, title: name, learnedWords: 0, words: nil)
         
-        LocalAppModelData.genres.append(newGenre)
+        if genre?.flashCards != nil{
+            genre?.flashCards?.append(flashCard)
+        }
+        else{
+            genre?.flashCards = [flashCard]
+        }
         LocalAppModelData.updateLocalData()
         
-        print(LocalAppModelData.genres[LocalAppModelData.genres.count-1].title)
-        
-        delegate?.didAddNewGenre()
+        delegate?.didAddNewFlashCard()
         
         self.dismiss(animated: true, completion: nil)
     }
 }
 
-extension AddNewGenreViewController{
+extension AddNewFlashCardViewController{
     func setGesture(){
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissView))
         tap.delegate = self
@@ -74,7 +74,7 @@ extension AddNewGenreViewController{
     }
 }
 
-extension AddNewGenreViewController: UITextFieldDelegate {
+extension AddNewFlashCardViewController: UITextFieldDelegate {
     
     func setupTextField() {
         nameTextField.delegate = self

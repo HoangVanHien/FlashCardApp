@@ -58,6 +58,9 @@ class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        LocalAppModelData.getLocalData()
+        
         if let user = Auth.auth().currentUser {
             user.reload {[weak self] (error) in
                 if let error = error {
@@ -68,6 +71,7 @@ class HomeViewController: BaseViewController {
         } else {
             collectionView.reloadData()
         }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -80,18 +84,29 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,
                               UICollectionViewDelegate,
                               UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return 1+LocalAppModelData.genres.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section != 0 {
-            return 3
+        guard section != 0 else{
+            return 0
         }
-        return 0
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let reusableCell = collectionView.dequeueCell(FlashCardCollectionViewCell.self, forIndexPath: indexPath)!
+        
+        guard let flashCard = LocalAppModelData.genres[indexPath.section - 1].flashCards else{
+            reusableCell.isHidden = true
+            return reusableCell
+        }
+        guard indexPath.item < flashCard.count else{
+            reusableCell.isHidden = true
+            return reusableCell
+        }
+        
+        reusableCell.flashCard = flashCard[indexPath.item]
         return reusableCell
     }
     
@@ -109,6 +124,10 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,
                 guard let reusableView = collectionView.dequeueHeader(GenreHeaderCollectionReusableView.self,
                                                                       forIndexPath: indexPath) else {
                     return UICollectionReusableView()
+                }
+                
+                if indexPath.section - 1 < LocalAppModelData.genres.count{
+                    reusableView.setUpGenre(genre: LocalAppModelData.genres[indexPath.section-1])
                 }
                 return reusableView
             }

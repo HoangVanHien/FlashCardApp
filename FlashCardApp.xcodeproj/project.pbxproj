@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2199BAE6289D73B400A2041F /* AddNewFlashCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199BAE4289D73B400A2041F /* AddNewFlashCardViewController.swift */; };
+		2199BAE7289D73B400A2041F /* AddNewFlashCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2199BAE5289D73B400A2041F /* AddNewFlashCardViewController.xib */; };
+		21ABAAB2289D2EB300ECDD9A /* LocalAppModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ABAAB1289D2EB300ECDD9A /* LocalAppModelData.swift */; };
 		21B2D1BA288AA8BD00F3F0A4 /* AddNewGenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B2D1B8288AA8BD00F3F0A4 /* AddNewGenreViewController.swift */; };
 		21B2D1BB288AA8BD00F3F0A4 /* AddNewGenreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B2D1B9288AA8BD00F3F0A4 /* AddNewGenreViewController.xib */; };
 		4D05C5D4253AEF4200FEF150 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D05C5D2253AEF4200FEF150 /* ForgotPasswordViewController.swift */; };
@@ -96,6 +99,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2199BAE4289D73B400A2041F /* AddNewFlashCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewFlashCardViewController.swift; sourceTree = "<group>"; };
+		2199BAE5289D73B400A2041F /* AddNewFlashCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewFlashCardViewController.xib; sourceTree = "<group>"; };
+		21ABAAB1289D2EB300ECDD9A /* LocalAppModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAppModelData.swift; sourceTree = "<group>"; };
 		21B2D1B8288AA8BD00F3F0A4 /* AddNewGenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGenreViewController.swift; sourceTree = "<group>"; };
 		21B2D1B9288AA8BD00F3F0A4 /* AddNewGenreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewGenreViewController.xib; sourceTree = "<group>"; };
 		2FD1B0A86225BCDAEBE4110E /* Pods-FlashCardApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashCardApp.release.xcconfig"; path = "Target Support Files/Pods-FlashCardApp/Pods-FlashCardApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -279,6 +285,7 @@
 				4DA6899925F0C933001CCF26 /* GenreModel.swift */,
 				4DA6899C25F0C93E001CCF26 /* FlashCardModel.swift */,
 				4D7C06C825F4118A00402AEA /* WordModel.swift */,
+				21ABAAB1289D2EB300ECDD9A /* LocalAppModelData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -344,6 +351,8 @@
 				4D7C06C425F3EA7700402AEA /* FlashCardViewController.xib */,
 				4D7C06CB25F4129A00402AEA /* CardView.swift */,
 				4D7C06CE25F412CF00402AEA /* CardView.xib */,
+				2199BAE4289D73B400A2041F /* AddNewFlashCardViewController.swift */,
+				2199BAE5289D73B400A2041F /* AddNewFlashCardViewController.xib */,
 			);
 			path = FlashCard;
 			sourceTree = "<group>";
@@ -594,6 +603,7 @@
 				4D47AE4625EA9A6700D8006D /* AccountHeaderCollectionReusableView.xib in Resources */,
 				4D47AEB625EB865800D8006D /* LastGenreFooterCollectionReusableView.xib in Resources */,
 				4D47AEA125EAC2C600D8006D /* GenreHeaderCollectionReusableView.xib in Resources */,
+				2199BAE7289D73B400A2041F /* AddNewFlashCardViewController.xib in Resources */,
 				4DCD7D1A25F18ABF00405BEB /* FlashCardOverViewTableViewCell.xib in Resources */,
 				4DA689B025F0E3FC001CCF26 /* BigFlashcardCollectionViewCell.xib in Resources */,
 				4D9DDBA92504968C0057CB23 /* SignInViewController.xib in Resources */,
@@ -696,6 +706,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D47AE1625EA523500D8006D /* UIView+Extension.swift in Sources */,
+				21ABAAB2289D2EB300ECDD9A /* LocalAppModelData.swift in Sources */,
 				4D05C5D4253AEF4200FEF150 /* ForgotPasswordViewController.swift in Sources */,
 				4D9DDBB625049DF70057CB23 /* RoundButton.swift in Sources */,
 				4D7C06C525F3EA7700402AEA /* FlashCardViewController.swift in Sources */,
@@ -746,6 +757,7 @@
 				4D47AEB525EB865800D8006D /* LastGenreFooterCollectionReusableView.swift in Sources */,
 				4D47AED125EC0BBD00D8006D /* MenuView.swift in Sources */,
 				4DA1FBA8250D211200C73D21 /* AppConfig.swift in Sources */,
+				2199BAE6289D73B400A2041F /* AddNewFlashCardViewController.swift in Sources */,
 				4DA689A225F0CDDA001CCF26 /* FlashCardOverViewController.swift in Sources */,
 				4DA6899A25F0C933001CCF26 /* GenreModel.swift in Sources */,
 				4D47AEC325EB93C700D8006D /* BaseView.swift in Sources */,

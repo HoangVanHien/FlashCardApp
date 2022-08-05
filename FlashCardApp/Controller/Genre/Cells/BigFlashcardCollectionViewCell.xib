@@ -165,7 +165,10 @@
             </constraints>
             <size key="customSize" width="380" height="154"/>
             <connections>
+                <outlet property="flashCardNameLabel" destination="Ogg-3P-Kmk" id="qSW-Ar-Zfn"/>
+                <outlet property="learnedWordsLabel" destination="ixF-Pk-mEl" id="7yp-UX-4Vf"/>
                 <outlet property="seeDetailButton" destination="iGI-uZ-Hgn" id="Hx4-a9-KOJ"/>
+                <outlet property="totalWordLabel" destination="aeS-8N-44S" id="gUl-Vz-2KP"/>
                 <outlet property="upLoadButton" destination="87M-BU-Y2L" id="YyU-RK-2jD"/>
                 <outlet property="uploadImageView" destination="cIX-TO-VGM" id="Vqw-Tl-JMc"/>
             </connections>

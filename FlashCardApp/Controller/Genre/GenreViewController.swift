@@ -12,17 +12,30 @@ import SwipeCellKit
 
 class GenreViewController: BaseViewController {
 
+    @IBOutlet weak var addNewFlashCardButton: UIImageView!
     @IBOutlet weak var progressView: UIView!
+    @IBOutlet weak var flashCardCountLabel: UILabel!
+    @IBOutlet weak var totalWordsLabel: UILabel!
+    @IBOutlet weak var learnedWordsLabel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     private lazy var progressRing = ALProgressRing()
     
+    var genre: GenreModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setTitleHeader(title: "Genre Title")
+        setTitleHeader(title: genre?.title ?? "Genre Title")
         setupProgressView()
+        setUpFromGenre()
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.registerCellByNib(BigFlashcardCollectionViewCell.self)
+        
+        addNewFlashCardButton.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                                          action: #selector(addNewFlashCardAction)))
+        
+        
     }
     
     func setupProgressView() {
@@ -33,11 +46,35 @@ class GenreViewController: BaseViewController {
         progressRing.widthAnchor.constraint(equalToConstant: progressView.frame.width).isActive = true
         progressRing.heightAnchor.constraint(equalToConstant: progressView.frame.height).isActive = true
         
-        progressRing.setProgress(0.8, animated: true)
         progressRing.startColor = UIColor.thirdColor ?? .systemPink
         progressRing.endColor = UIColor.primaryColor ?? .systemRed
         progressRing.ringWidth = 10
         progressRing.grooveWidth = 8
+    }
+    
+    func setUpFromGenre(){
+        flashCardCountLabel.text = "Flashcards: \(genre?.flashCards?.count ?? 0)"
+        let total = genre?.totalWordCount() ?? 0
+        guard total > 0 else{
+            progressRing.setProgress(0, animated: true)
+            progressLabel.text = "0%"
+            totalWordsLabel.text = "Total words: 0"
+            learnedWordsLabel.text = "Learned words: 0"
+            return
+        }
+        totalWordsLabel.text = "Total words: \(total)"
+        let learned = genre?.learnedWordCount() ?? 0
+        learnedWordsLabel.text = "Learned words: \(learned)"
+        let progress = Float(learned) / Float(total)
+        progressRing.setProgress(progress, animated: true)
+        progressLabel.text = "\(Float(learned) / Float(total) * 100)%"
+    }
+    
+    @objc func addNewFlashCardAction(){
+        let addNewFlashCard = AddNewFlashCardViewController()
+        addNewFlashCard.delegate = self
+        addNewFlashCard.genre = genre
+        presentView(addNewFlashCard)
     }
 }
 
@@ -45,7 +82,7 @@ extension GenreViewController: UICollectionViewDelegateFlowLayout,
                                UICollectionViewDelegate,
                                UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 5
+        return genre?.flashCards?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -58,6 +95,7 @@ extension GenreViewController: UICollectionViewDelegateFlowLayout,
         }
         reusableCell.delegate = self
         reusableCell.actionDelegate = self
+        reusableCell.flashCard = genre?.flashCards?[indexPath.section]
         return reusableCell
     }
     
@@ -109,4 +147,18 @@ extension GenreViewController: SwipeCollectionViewCellDelegate, BigFlashcardDele
     }
 }
 
+extension GenreViewController: AddNewFlashCardDelegate{
+    func didAddNewFlashCard() {
+        collectionView.reloadData()
+    }
+}
 
+extension GenreViewController{
+    func presentView(_ viewController: BaseViewController) {
+        let viewController = viewController
+        let navi = BaseNavigationController(rootViewController: viewController)
+        navi.modalPresentationStyle = .overFullScreen
+        navi.modalTransitionStyle = .crossDissolve
+        present(navi, animated: true)
+    }
+}

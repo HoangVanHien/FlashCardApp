@@ -12,14 +12,18 @@ import ALProgressRing
 class FlashCardCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var progressView: UIView!
+    @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var flashCardTitle: UILabel!
     @IBOutlet weak var wordCount: UILabel!
+    
+    var flashCard: FlashCardModel?
     
     private lazy var progressRing = ALProgressRing()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupView()
+        setUpFromFlashCard()
     }
 
     func setupView() {
@@ -31,10 +35,24 @@ class FlashCardCollectionViewCell: UICollectionViewCell {
         progressRing.widthAnchor.constraint(equalToConstant: 40).isActive = true
         progressRing.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        progressRing.setProgress(0.8, animated: true)
         progressRing.startColor = UIColor.thirdColor ?? .systemPink
         progressRing.endColor = UIColor.primaryColor ?? .systemRed
         progressRing.ringWidth = 5
         progressRing.grooveWidth = 4
+    }
+    
+    func setUpFromFlashCard(){
+        flashCardTitle.text = flashCard?.title
+        let total = flashCard?.words?.count ?? 0
+        guard total > 0 else{
+            progressRing.setProgress(0, animated: true)
+            progressLabel.text = "0"
+            wordCount.text = "0"
+            return
+        }
+        wordCount.text = "\(total)"
+        let progress = Float(flashCard!.learnedWords ?? 0) / Float(total)
+        progressRing.setProgress(progress, animated: true)
+        progressLabel.text = "\(progress * 100)%"
     }
 }

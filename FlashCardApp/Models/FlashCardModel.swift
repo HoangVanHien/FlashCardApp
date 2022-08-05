@@ -9,50 +9,50 @@
 import Foundation
 
 class FlashCardModel: NSObject, NSCoding, Decodable {
+    var id: Int
     var title: String
-    var totalWords: Int?
     var learnedWords: Int?
-    var words = [String: WordModel]()
+    var words : [WordModel]?
 
     init(
-         title: String,
-         totalWords: Int?,
-         learnedWords: Int?,
-         words : [String: WordModel]?
+        id: Int,
+        title: String,
+        learnedWords: Int?,
+        words : [WordModel]?
     ) {
+        self.id = id
         self.title = title
-        self.totalWords = totalWords
         self.learnedWords = learnedWords
-        if let cfWords = words{
-            for word in cfWords {
-                self.words[word.key] = word.value
-            }
-        }
+        self.words = words
     }
 
     required convenience init(coder aDecoder: NSCoder) {
-        let title = aDecoder.decodeObject(forKey: "title") as? String
-        let totalWords = aDecoder.decodeInteger(forKey: "totalWords")
+        let id = aDecoder.decodeInteger(forKey: "id")
+        guard let title = aDecoder.decodeObject(forKey: "title") as? String else{
+            print("flash card title decode fail")
+            self.init(id: -1, title: "", learnedWords: nil, words: nil)
+            return
+        }
         let learnedWords = aDecoder.decodeInteger(forKey: "learnedWords")
-        let words = aDecoder.decodeObject(forKey: "words") as? [String: WordModel]
+        let words = aDecoder.decodeObject(forKey: "words") as? [WordModel]
         self.init(
-                  title: title ?? "",
-                  totalWords: totalWords,
-                  learnedWords: learnedWords,
-                  words: words
+            id: id,
+            title: title,
+            learnedWords: learnedWords,
+            words: words
         )
     }
 
     func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: "id")
         aCoder.encode(title, forKey: "title")
-        aCoder.encode(totalWords, forKey: "totalWords")
         aCoder.encode(learnedWords, forKey: "learnedWords")
         aCoder.encode(words, forKey: "words")
     }
 
     enum CodingKeys: String, CodingKey {
+        case id
         case title
-        case totalWords
         case learnedWords
         case words
     }
