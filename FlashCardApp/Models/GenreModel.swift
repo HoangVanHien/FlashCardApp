@@ -48,7 +48,6 @@ class GenreModel: NSObject, NSCoding, Decodable {
                   title: title,
                   owner: owner,
                   flashCards: flashCards)
-        print(localId)
     }
 
     func encode(with aCoder: NSCoder) {

@@ -33,7 +33,7 @@ class FlashCardModel: NSObject, NSCoding, Decodable {
             self.init(id: -1, title: "", learnedWords: nil, words: nil)
             return
         }
-        let learnedWords = aDecoder.decodeInteger(forKey: "learnedWords")
+        let learnedWords = aDecoder.decodeObject(forKey: "learnedWords") as? Int
         let words = aDecoder.decodeObject(forKey: "words") as? [WordModel]
         self.init(
             id: id,

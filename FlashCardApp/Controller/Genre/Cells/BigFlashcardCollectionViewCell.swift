@@ -9,10 +9,6 @@
 import UIKit
 import SwipeCellKit
 
-protocol BigFlashcardDelegate: class {
-    func seeDetail()
-}
-
 class BigFlashcardCollectionViewCell: SwipeCollectionViewCell {
 
     @IBOutlet weak var flashCardNameLabel: UILabel!
@@ -23,23 +19,25 @@ class BigFlashcardCollectionViewCell: SwipeCollectionViewCell {
     @IBOutlet weak var seeDetailButton: UIView!
     
     var flashCard: FlashCardModel?
-    weak var actionDelegate: BigFlashcardDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         upLoadButton.layer.cornerRadius = upLoadButton.frame.height/2
-        setUpFromFlashCard()
         seeDetailButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(seeDetailAction)))
     }
     
-    func setUpFromFlashCard(){
+    func setUpFromFlashCard(flashCard newFC: FlashCardModel?){
+        flashCard = newFC
         flashCardNameLabel.text = flashCard?.title
         totalWordLabel.text = "\(flashCard?.words?.count ?? 0) words"
         learnedWordsLabel.text = "Learned words: \(flashCard?.learnedWords ?? 0)"
     }
     
     @objc func seeDetailAction() {
-        actionDelegate?.seeDetail()
+        let vc = FlashCardOverViewController()
+        vc.flashCard = flashCard
+        vc.hidesBottomBarWhenPushed = true
+        UIViewController.top()?.push(vc)
     }
 
 }

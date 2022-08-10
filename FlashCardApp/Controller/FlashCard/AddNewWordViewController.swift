@@ -1,23 +1,25 @@
 //
-//  AddNewFlashCardViewController.swift
+//  AddNewWordViewController.swift
 //  FlashCardApp
 //
-//  Created by mk1 on 05/08/2022.
+//  Created by mk1 on 10/08/2022.
 //  Copyright © 2022 Nguyễn Đức Tân. All rights reserved.
 //
 
 import UIKit
 
-protocol AddNewFlashCardDelegate: class {
-    func didAddNewFlashCard()
+protocol AddNewWordDelegate: class {
+    func didAddNewWord()
 }
 
-class AddNewFlashCardViewController: BaseViewController {
+class AddNewWordViewController: BaseViewController, UITextViewDelegate {
 
     @IBOutlet weak var functionView: UIView!
     @IBOutlet weak var nameTextField: UITextField!
-    weak var delegate: AddNewFlashCardDelegate?
-    var genre: GenreModel?
+    @IBOutlet weak var meaningTextView: UITextView!
+    
+    weak var delegate: AddNewWordDelegate?
+    var flashCard: FlashCardModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,25 +34,28 @@ class AddNewFlashCardViewController: BaseViewController {
         guard let name = nameTextField.text else{
             return
         }
-                                                                                                                                                                                          
         
-        let flashCard = FlashCardModel(id: genre?.flashCards?.count ?? 0, title: name, learnedWords: 0, words: nil)
+        guard let meaning = meaningTextView.text else{
+            return
+        }
         
-        if genre?.flashCards != nil{
-            genre?.flashCards?.append(flashCard)
+        let word = WordModel(id: flashCard?.words?.count ?? 0, word: name, meaning: meaning, learned: 0)
+        
+        if flashCard?.words != nil{
+            flashCard?.words?.append(word)
         }
         else{
-            genre?.flashCards = [flashCard]
+            flashCard?.words = [word]
         }
         LocalAppModelData.updateLocalData()
         
-        delegate?.didAddNewFlashCard()
+        delegate?.didAddNewWord()
         
         self.dismiss(animated: true, completion: nil)
     }
 }
 
-extension AddNewFlashCardViewController{
+extension AddNewWordViewController{
     func setGesture(){
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissView))
         tap.delegate = self
@@ -74,14 +79,18 @@ extension AddNewFlashCardViewController{
     }
 }
 
-extension AddNewFlashCardViewController: UITextFieldDelegate {
+extension AddNewWordViewController: UITextFieldDelegate {
     
     func setupTextField() {
         nameTextField.delegate = self
+        meaningTextView.delegate = self
     }
     
     func checkEdited() -> Bool {
         if (nameTextField.text != "" && nameTextField.isEditing) {
+            return true
+        }
+        if (meaningTextView.text != "" && meaningTextView.isFirstResponder) {
             return true
         }
         nameTextField.placeholder = Localizable.blankInputName

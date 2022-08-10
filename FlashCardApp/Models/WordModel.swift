@@ -26,11 +26,7 @@ class WordModel: NSObject, NSCoding, Decodable {
     }
 
     required convenience init(coder aDecoder: NSCoder) {
-        guard let id = aDecoder.decodeObject(forKey: "id") as? Int else{
-            print("word id decode fail")
-            self.init(id: -1, word: "", meaning: nil, learned: nil)
-            return
-        }
+        let id = aDecoder.decodeInteger(forKey: "id")
         guard let word = aDecoder.decodeObject(forKey: "word") as? String else{
             print("word decode fail")
             self.init(id: -1, word: "", meaning: nil, learned: nil)

@@ -23,7 +23,6 @@ class FlashCardCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupView()
-        setUpFromFlashCard()
     }
 
     func setupView() {
@@ -41,7 +40,8 @@ class FlashCardCollectionViewCell: UICollectionViewCell {
         progressRing.grooveWidth = 4
     }
     
-    func setUpFromFlashCard(){
+    func setUpFromFlashCard(flashCard newFC: FlashCardModel?){
+        flashCard = newFC
         flashCardTitle.text = flashCard?.title
         let total = flashCard?.words?.count ?? 0
         guard total > 0 else{

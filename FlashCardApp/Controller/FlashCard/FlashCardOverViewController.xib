@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FlashCardOverViewController" customModule="FlashCardApp" customModuleProvider="target">
             <connections>
+                <outlet property="addNewWordButton" destination="1Zz-EM-07f" id="tYn-RC-oXy"/>
                 <outlet property="appHeader" destination="3Gx-ex-Sad" id="nyE-Qy-EFh"/>
                 <outlet property="tableView" destination="Res-Yg-LYx" id="aPP-k4-keo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -69,12 +70,27 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1Zz-EM-07f">
+                    <rect key="frame" x="344" y="708.5" width="50" height="49"/>
+                    <color key="tintColor" name="primaryColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="lmh-hc-frv"/>
+                        <constraint firstAttribute="height" constant="50" id="y9g-D7-UiS"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="round" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="3Gx-ex-Sad" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="6EJ-mF-2TR"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lQw-Bj-jKe" secondAttribute="trailing" constant="30" id="FPI-6N-k9F"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1Zz-EM-07f" secondAttribute="trailing" constant="20" id="Gl2-l4-mmK"/>
                 <constraint firstAttribute="trailing" secondItem="3Gx-ex-Sad" secondAttribute="trailing" id="NPv-28-US8"/>
                 <constraint firstItem="lQw-Bj-jKe" firstAttribute="top" secondItem="Res-Yg-LYx" secondAttribute="bottom" constant="8" symbolic="YES" id="WBv-W2-CuZ"/>
                 <constraint firstItem="Res-Yg-LYx" firstAttribute="top" secondItem="3Gx-ex-Sad" secondAttribute="bottom" id="Yki-NA-OkD"/>
@@ -83,16 +99,21 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="lQw-Bj-jKe" secondAttribute="bottom" constant="30" id="gOl-aM-Uix"/>
                 <constraint firstItem="3Gx-ex-Sad" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="j68-zW-nxK"/>
                 <constraint firstItem="Res-Yg-LYx" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="jmN-B7-pQu"/>
+                <constraint firstItem="lQw-Bj-jKe" firstAttribute="top" secondItem="1Zz-EM-07f" secondAttribute="bottom" constant="20" id="ve4-R4-bME"/>
             </constraints>
             <point key="canvasLocation" x="-213.04347826086959" y="61.607142857142854"/>
         </view>
     </objects>
     <resources>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="fourthColor">
             <color red="0.36862745098039218" green="0.99215686274509807" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="lightTextColor">
             <color red="0.54199999570846558" green="0.59500002861022949" blue="0.67100000381469727" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="primaryColor">
+            <color red="0.99599999189376831" green="0.50599998235702515" blue="0.36899998784065247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

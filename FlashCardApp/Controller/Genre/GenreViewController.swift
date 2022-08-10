@@ -94,8 +94,7 @@ extension GenreViewController: UICollectionViewDelegateFlowLayout,
             return UICollectionViewCell()
         }
         reusableCell.delegate = self
-        reusableCell.actionDelegate = self
-        reusableCell.flashCard = genre?.flashCards?[indexPath.section]
+        reusableCell.setUpFromFlashCard(flashCard: genre?.flashCards?[indexPath.section])
         return reusableCell
     }
     
@@ -118,7 +117,7 @@ extension GenreViewController: UICollectionViewDelegateFlowLayout,
     }
 }
 
-extension GenreViewController: SwipeCollectionViewCellDelegate, BigFlashcardDelegate {
+extension GenreViewController: SwipeCollectionViewCellDelegate {
     
     func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
@@ -139,17 +138,12 @@ extension GenreViewController: SwipeCollectionViewCellDelegate, BigFlashcardDele
         options.transitionStyle = .border
         return options
     }
-    
-    func seeDetail() {
-        let vc = FlashCardOverViewController()
-        vc.hidesBottomBarWhenPushed = true
-        push(vc)
-    }
 }
 
 extension GenreViewController: AddNewFlashCardDelegate{
     func didAddNewFlashCard() {
         collectionView.reloadData()
+        setUpFromGenre()
     }
 }
 

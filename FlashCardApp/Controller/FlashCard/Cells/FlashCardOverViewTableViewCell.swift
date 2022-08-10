@@ -11,8 +11,15 @@ import UIKit
 class FlashCardOverViewTableViewCell: UITableViewCell {
 
     @IBOutlet weak var shadowView: ShadowView!
+    @IBOutlet weak var wordLabel: UILabel!
+    @IBOutlet weak var meaningLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    func setUpFromWord(word:WordModel?){
+        wordLabel.text = word?.word
+        meaningLabel.text = word?.meaning
     }
 }

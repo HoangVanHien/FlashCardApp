@@ -24,6 +24,7 @@ class LocalAppModelData{
     class func getLocalData(){
         if let genresTmp = DataLocal.getData(forKey: keyString) as? [GenreModel]{
             genres = genresTmp
+            print("Get local done")
         }
     }
 }

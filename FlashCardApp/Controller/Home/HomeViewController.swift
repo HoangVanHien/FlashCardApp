@@ -106,7 +106,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,
             return reusableCell
         }
         
-        reusableCell.flashCard = flashCard[indexPath.item]
+        reusableCell.setUpFromFlashCard(flashCard: flashCard[indexPath.item])
         return reusableCell
     }
     

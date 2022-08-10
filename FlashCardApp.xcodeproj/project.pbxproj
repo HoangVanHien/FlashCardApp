@@ -12,6 +12,8 @@
 		21ABAAB2289D2EB300ECDD9A /* LocalAppModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ABAAB1289D2EB300ECDD9A /* LocalAppModelData.swift */; };
 		21B2D1BA288AA8BD00F3F0A4 /* AddNewGenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B2D1B8288AA8BD00F3F0A4 /* AddNewGenreViewController.swift */; };
 		21B2D1BB288AA8BD00F3F0A4 /* AddNewGenreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21B2D1B9288AA8BD00F3F0A4 /* AddNewGenreViewController.xib */; };
+		21BC258528A3B0EF00B4A497 /* AddNewWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BC258328A3B0EF00B4A497 /* AddNewWordViewController.swift */; };
+		21BC258628A3B0EF00B4A497 /* AddNewWordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21BC258428A3B0EF00B4A497 /* AddNewWordViewController.xib */; };
 		4D05C5D4253AEF4200FEF150 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D05C5D2253AEF4200FEF150 /* ForgotPasswordViewController.swift */; };
 		4D05C5D5253AEF4200FEF150 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D05C5D3253AEF4200FEF150 /* ForgotPasswordViewController.xib */; };
 		4D2B999625393913005681CF /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2B999525393913005681CF /* DeviceInfo.swift */; };
@@ -104,6 +106,8 @@
 		21ABAAB1289D2EB300ECDD9A /* LocalAppModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAppModelData.swift; sourceTree = "<group>"; };
 		21B2D1B8288AA8BD00F3F0A4 /* AddNewGenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGenreViewController.swift; sourceTree = "<group>"; };
 		21B2D1B9288AA8BD00F3F0A4 /* AddNewGenreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewGenreViewController.xib; sourceTree = "<group>"; };
+		21BC258328A3B0EF00B4A497 /* AddNewWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewWordViewController.swift; sourceTree = "<group>"; };
+		21BC258428A3B0EF00B4A497 /* AddNewWordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewWordViewController.xib; sourceTree = "<group>"; };
 		2FD1B0A86225BCDAEBE4110E /* Pods-FlashCardApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlashCardApp.release.xcconfig"; path = "Target Support Files/Pods-FlashCardApp/Pods-FlashCardApp.release.xcconfig"; sourceTree = "<group>"; };
 		4D05C5D2253AEF4200FEF150 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		4D05C5D3253AEF4200FEF150 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
@@ -353,6 +357,8 @@
 				4D7C06CE25F412CF00402AEA /* CardView.xib */,
 				2199BAE4289D73B400A2041F /* AddNewFlashCardViewController.swift */,
 				2199BAE5289D73B400A2041F /* AddNewFlashCardViewController.xib */,
+				21BC258328A3B0EF00B4A497 /* AddNewWordViewController.swift */,
+				21BC258428A3B0EF00B4A497 /* AddNewWordViewController.xib */,
 			);
 			path = FlashCard;
 			sourceTree = "<group>";
@@ -606,6 +612,7 @@
 				2199BAE7289D73B400A2041F /* AddNewFlashCardViewController.xib in Resources */,
 				4DCD7D1A25F18ABF00405BEB /* FlashCardOverViewTableViewCell.xib in Resources */,
 				4DA689B025F0E3FC001CCF26 /* BigFlashcardCollectionViewCell.xib in Resources */,
+				21BC258628A3B0EF00B4A497 /* AddNewWordViewController.xib in Resources */,
 				4D9DDBA92504968C0057CB23 /* SignInViewController.xib in Resources */,
 				4DD7DF042503B16D0088BD8D /* Assets.xcassets in Resources */,
 				21B2D1BB288AA8BD00F3F0A4 /* AddNewGenreViewController.xib in Resources */,
@@ -724,6 +731,7 @@
 				4D9DDBC02504D9DB0057CB23 /* UIAlertViewController+Extension.swift in Sources */,
 				4D9DDBBA25049F140057CB23 /* UITableViewController+Extension.swift in Sources */,
 				4D2B999625393913005681CF /* DeviceInfo.swift in Sources */,
+				21BC258528A3B0EF00B4A497 /* AddNewWordViewController.swift in Sources */,
 				4D9DDBBE2504A48C0057CB23 /* UIViewController+Extension.swift in Sources */,
 				4D9DDBAF250496DE0057CB23 /* BaseViewController.swift in Sources */,
 				4DA1FB8E250D1F5D00C73D21 /* Result.swift in Sources */,
