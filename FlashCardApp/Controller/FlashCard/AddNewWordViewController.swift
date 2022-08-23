@@ -39,7 +39,7 @@ class AddNewWordViewController: BaseViewController, UITextViewDelegate {
             return
         }
         
-        let word = WordModel(id: flashCard?.words?.count ?? 0, word: name, meaning: meaning, learned: 0)
+        let word = WordModel(id: flashCard?.words?.count ?? 0, word: name, meaning: meaning, learned: false)
         
         if flashCard?.words != nil{
             flashCard?.words?.append(word)
@@ -47,7 +47,7 @@ class AddNewWordViewController: BaseViewController, UITextViewDelegate {
         else{
             flashCard?.words = [word]
         }
-        LocalAppModelData.updateLocalData()
+        LocalAppModelData.saveLocalData()
         
         delegate?.didAddNewWord()
         

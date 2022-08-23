@@ -11,7 +11,7 @@ import Foundation
 class FlashCardModel: NSObject, NSCoding, Decodable {
     var id: Int
     var title: String
-    var learnedWords: Int?
+    var learnedWords: Int
     var words : [WordModel]?
 
     init(
@@ -22,7 +22,7 @@ class FlashCardModel: NSObject, NSCoding, Decodable {
     ) {
         self.id = id
         self.title = title
-        self.learnedWords = learnedWords
+        self.learnedWords = learnedWords ?? 0
         self.words = words
     }
 
@@ -33,7 +33,7 @@ class FlashCardModel: NSObject, NSCoding, Decodable {
             self.init(id: -1, title: "", learnedWords: nil, words: nil)
             return
         }
-        let learnedWords = aDecoder.decodeObject(forKey: "learnedWords") as? Int
+        let learnedWords = aDecoder.decodeInteger(forKey: "learnedWords")
         let words = aDecoder.decodeObject(forKey: "words") as? [WordModel]
         self.init(
             id: id,

@@ -42,7 +42,7 @@ class AddNewFlashCardViewController: BaseViewController {
         else{
             genre?.flashCards = [flashCard]
         }
-        LocalAppModelData.updateLocalData()
+        LocalAppModelData.saveLocalData()
         
         delegate?.didAddNewFlashCard()
         

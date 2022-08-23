@@ -27,6 +27,7 @@ class FlashCardOverViewController: BaseViewController {
         let vc = FlashCardViewController()
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .crossDissolve
+        vc.flashCard = flashCard
         present(vc, animated: true, completion: nil)
     }
     

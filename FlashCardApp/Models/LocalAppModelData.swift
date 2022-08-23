@@ -17,7 +17,7 @@ class LocalAppModelData{
     static var currentFlashCard: FlashCardModel?
     static var currentWord: WordModel?
     
-    class func updateLocalData() {
+    class func saveLocalData() {
         DataLocal.saveData(forKey: keyString, genres)
     }
     

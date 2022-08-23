@@ -12,28 +12,28 @@ class WordModel: NSObject, NSCoding, Decodable {
     var id: Int
     var word: String
     var meaning: String?
-    var learned: Int?
+    var learned: Bool
 
     init(
         id: Int,
         word: String,
         meaning: String?,
-        learned: Int?) {
+        learned: Bool?) {
             self.id = id
             self.word = word
             self.meaning = meaning
-            self.learned = learned
+            self.learned = learned ?? false
     }
 
     required convenience init(coder aDecoder: NSCoder) {
         let id = aDecoder.decodeInteger(forKey: "id")
         guard let word = aDecoder.decodeObject(forKey: "word") as? String else{
             print("word decode fail")
-            self.init(id: -1, word: "", meaning: nil, learned: nil)
+            self.init(id: -1, word: "", meaning: nil, learned: false)
             return
         }
         let meaning = aDecoder.decodeObject(forKey: "meaning") as? String
-        let learned = aDecoder.decodeObject(forKey: "learned") as? Int
+        let learned = aDecoder.decodeBool(forKey: "learned")
         self.init(id: id,
                   word: word,
                   meaning: meaning,

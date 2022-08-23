@@ -15,8 +15,7 @@ class CardView: ShadowView {
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var blurView: UIView!
     var isFront = true
-    var word: String?
-    var meaning: String?
+    var word: WordModel?
     var rolate: CGFloat = 0
     
     required init(coder aDecoder: NSCoder) {
@@ -41,7 +40,7 @@ class CardView: ShadowView {
     
     @objc func flipAction() {
         isFront = !isFront
-        wordLabel.text = isFront ? word : meaning
+        wordLabel.text = isFront ? word?.word : word?.meaning
     }
     
     func updateStatus(_ gotIt: Bool) {
@@ -49,10 +48,12 @@ class CardView: ShadowView {
             statusView.backgroundColor = UIColor.fourthColor
             statusLabel.text = "Got it"
             statusLabel.textColor = .black
+            word?.learned = true
         } else {
             statusView.backgroundColor = UIColor.secondColor
             statusLabel.text = "Study again"
             statusLabel.textColor = .white
+            word?.learned = false
         }
     }
 }

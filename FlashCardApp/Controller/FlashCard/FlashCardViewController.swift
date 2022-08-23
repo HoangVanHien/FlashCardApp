@@ -11,6 +11,7 @@ import UIKit
 class FlashCardViewController: UIViewController {
 
     var listCard: [String:CardView] = [:]
+    var flashCard: FlashCardModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class FlashCardViewController: UIViewController {
                                    y: view.center.y)
             card.setTransformRotation(toDegrees: -card.rolate)
             card.rolate = 0
-            
+            updateLearnedWord(word: card.word)
         } else {
             card.center = CGPoint(x: card.center.x + translation.x,
                                   y: card.center.y + translation.y)
@@ -46,13 +47,15 @@ class FlashCardViewController: UIViewController {
     }
     
     @IBAction func closeAction(_ sender: UIButton) {
+        LocalAppModelData.saveLocalData()
         dismiss(animated: true, completion: nil)
     }
     
     func generateCard() {
-        for index in 0..<5 {
-            let word = "\(index)"
-            listCard[word] = createCart(word: word)
+        flashCard?.learnedWords = 0
+        for index in 0..<(flashCard?.words?.count ?? 0){
+            let word = flashCard?.words?[index]
+            listCard[word?.word ?? ""] = createCard(word: word)
         }
     }
     
@@ -60,14 +63,25 @@ class FlashCardViewController: UIViewController {
         
     }
     
-    func updateLearnedWord(word: String) {
-        
+    func updateLearnedWord(word: WordModel?) {
+        guard let w = word else{
+            return
+        }
+        if w.learned{
+            flashCard?.learnedWords += 1
+        }
+        else{
+            regenerateCard()
+        }
+        print("\(flashCard?.learnedWords ?? -1)")
     }
     
     @IBAction func resetAction(_ sender: UIButton) {
+        listCard = [:]
+        generateCard()
     }
     
-    func createCart(word: String) -> CardView {
+    func createCard(word: WordModel?) -> CardView {
         let newCard = CardView()
         newCard.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(newCard)
@@ -82,10 +96,10 @@ class FlashCardViewController: UIViewController {
         newCard.isUserInteractionEnabled = true
         newCard.addGestureRecognizer(panGesture)
         newCard.isHidden = false
-        newCard.wordLabel.text = word
         newCard.word = word
+        newCard.wordLabel.text = word?.word
         newCard.setTransformRotation(toDegrees: CGFloat(Int.random(in: -3..<3)))
-        panGesture.name = word
+        panGesture.name = word?.word
         
         return newCard
     }

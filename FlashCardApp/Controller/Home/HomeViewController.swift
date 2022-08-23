@@ -105,7 +105,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,
             reusableCell.isHidden = true
             return reusableCell
         }
-        
+        reusableCell.isHidden = false
         reusableCell.setUpFromFlashCard(flashCard: flashCard[indexPath.item])
         return reusableCell
     }

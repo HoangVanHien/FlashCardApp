@@ -40,7 +40,7 @@ class AddNewGenreViewController: BaseViewController{
             cloudId: nil, localId: LocalAppModelData.genres.count, title: name, owner: Auth.auth().currentUser?.uid, flashCards: nil)
         
         LocalAppModelData.genres.append(newGenre)
-        LocalAppModelData.updateLocalData()
+        LocalAppModelData.saveLocalData()
         
         print(LocalAppModelData.genres[LocalAppModelData.genres.count-1].title)
         
